@@ -56,3 +56,7 @@ JidoSeal is an independent certifier. It is not affiliated with, sponsored by or
 test/test.sh                      # installs jidoseal from PyPI into a temp venv and runs five cases
 test/test.sh /path/to/jidoseal    # or use a binary you already have
 ```
+
+## License
+
+The wrapper scripts in this repository (`action.yml`, `scan.sh`, tests, examples) are licensed under Apache-2.0; see [LICENSE](LICENSE). The scan engine the Action installs is proprietary and is not covered by this license.
