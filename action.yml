@@ -1,0 +1,43 @@
+name: "JidoSeal OKF quick check"
+description: "Pick a folder, scan it: grade a folder of markdown against the Open Knowledge Format (Bronze, Silver or Gold) with the free JidoSeal Self-Check, on the runner."
+author: "JidoSeal"
+branding:
+  icon: "check-circle"
+  color: "yellow"
+inputs:
+  path:
+    description: "Folder to scan, relative to the repository root."
+    required: false
+    default: "."
+  min-tier:
+    description: "Fail the step if the folder reaches a lower grade. One of none, bronze, silver, gold."
+    required: false
+    default: "none"
+  jidoseal-version:
+    description: "Version of the jidoseal command-line tool from PyPI."
+    required: false
+    default: "0.1.4"
+outputs:
+  tier:
+    description: "Grade the whole folder reaches: gold, silver, bronze or none."
+    value: ${{ steps.scan.outputs.tier }}
+  bronze-coverage:
+    description: "Percent of files meeting Bronze."
+    value: ${{ steps.scan.outputs.bronze-coverage }}
+  silver-coverage:
+    description: "Percent of files meeting Silver."
+    value: ${{ steps.scan.outputs.silver-coverage }}
+  gold-coverage:
+    description: "Percent of files meeting Gold."
+    value: ${{ steps.scan.outputs.gold-coverage }}
+runs:
+  using: "composite"
+  steps:
+    - name: Scan the folder
+      id: scan
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_MIN_TIER: ${{ inputs.min-tier }}
+        INPUT_VERSION: ${{ inputs.jidoseal-version }}
+      run: bash "${{ github.action_path }}/scan.sh"

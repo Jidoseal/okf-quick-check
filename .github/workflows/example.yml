@@ -1,0 +1,14 @@
+name: OKF quick check
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  okf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Jidoseal/okf-quick-check@v1
+        with:
+          path: docs          # pick a folder, scan it
+          min-tier: bronze    # fail the job if the folder falls below Bronze
