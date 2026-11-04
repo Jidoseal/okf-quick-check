@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Local test: runs scan.sh (the action's shell logic) against the sample folders with the real
-# jidoseal CLI. Usage: test/test.sh [path-to-jidoseal-binary]   (installs jidoseal==0.1.4 if omitted)
+# jidoseal CLI. Usage: test/test.sh [path-to-jidoseal-binary]   (installs jidoseal==0.1.5 if omitted)
 set -uo pipefail
 here="$(cd "$(dirname "$0")/.." && pwd)"
 work="$(mktemp -d)"

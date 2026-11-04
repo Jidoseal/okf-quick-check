@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Jidoseal/okf-quick-check@v1
+      - uses: Jidoseal/okf-quick-check@v1.0.3
         with:
           path: docs          # pick a folder, scan it
           min-tier: bronze    # fail the job if the folder falls below Bronze

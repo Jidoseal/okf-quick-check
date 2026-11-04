@@ -1,5 +1,5 @@
 name: "JidoSeal OKF quick check"
-description: "Pick a folder, scan it: grade a folder of markdown against the Open Knowledge Format (Bronze, Silver or Gold) with the free JidoSeal Self-Check, on the runner."
+description: "Pick a folder, scan it: grade markdown against the Open Knowledge Format (Bronze, Silver or Gold)."
 author: "JidoSeal"
 branding:
   icon: "check-circle"
@@ -16,7 +16,7 @@ inputs:
   jidoseal-version:
     description: "Version of the jidoseal command-line tool from PyPI."
     required: false
-    default: "0.1.4"
+    default: "0.1.5"
 outputs:
   tier:
     description: "Grade the whole folder reaches: gold, silver, bronze or none."

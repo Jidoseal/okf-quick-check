@@ -7,7 +7,7 @@ set -euo pipefail
 
 path="${INPUT_PATH:-.}"
 min_tier="${INPUT_MIN_TIER:-none}"
-version="${INPUT_VERSION:-0.1.4}"
+version="${INPUT_VERSION:-0.1.5}"
 
 case "$min_tier" in none|bronze|silver|gold) ;; *)
   echo "::error::min-tier must be none, bronze, silver or gold (got '$min_tier')"; exit 2;; esac

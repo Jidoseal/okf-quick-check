@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Jidoseal/okf-quick-check@v1
+      - uses: Jidoseal/okf-quick-check@v1.0.3
         with:
           path: docs          # the folder to scan
           min-tier: bronze    # fail the job below this grade (none, bronze, silver, gold)
@@ -24,7 +24,7 @@ jobs:
 |---|---|---|
 | `path` | `.` | Folder to scan, relative to the repository root. |
 | `min-tier` | `none` | Fail the step if the folder reaches a lower grade. |
-| `jidoseal-version` | `0.1.4` | Version of the [`jidoseal`](https://pypi.org/project/jidoseal/) command-line tool to install from PyPI. |
+| `jidoseal-version` | `0.1.5` | Version of the [`jidoseal`](https://pypi.org/project/jidoseal/) command-line tool to install from PyPI. |
 
 | Output | Meaning |
 |---|---|
