@@ -1,5 +1,5 @@
 name: "JidoSeal OKF quick check"
-description: "Pick a folder, scan it: grade markdown against the Open Knowledge Format (Bronze, Silver or Gold)."
+description: "Pick a folder, scan it: grade markdown against OKF Folder Criteria v1.0.0 (OKF Certified, Bronze, Silver, Gold)."
 author: "JidoSeal"
 branding:
   icon: "check-circle"
@@ -10,17 +10,26 @@ inputs:
     required: false
     default: "."
   min-tier:
-    description: "Fail the step if the folder reaches a lower grade. One of none, bronze, silver, gold."
+    description: "Fail the step if the folder reaches a lower grade. One of none, okf-certified, bronze, silver, gold (OKF Folder Criteria v1.0.0)."
     required: false
     default: "none"
   jidoseal-version:
-    description: "Version of the jidoseal command-line tool from PyPI."
+    description: "Version of the jidoseal command-line tool from PyPI. 0.2.0 or later."
     required: false
-    default: "0.1.5"
+    default: "0.2.0"
 outputs:
   tier:
-    description: "Grade the whole folder reaches: gold, silver, bronze or none."
+    description: "Grade the whole folder reaches: gold, silver, bronze, okf-certified or none."
     value: ${{ steps.scan.outputs.tier }}
+  criteria-version:
+    description: "Version of the OKF Folder Criteria the grade uses."
+    value: ${{ steps.scan.outputs.criteria-version }}
+  score:
+    description: "Mean of the four coverage figures, 0 to 100."
+    value: ${{ steps.scan.outputs.score }}
+  okf-certified-coverage:
+    description: "Percent of files meeting OKF Certified."
+    value: ${{ steps.scan.outputs.okf-certified-coverage }}
   bronze-coverage:
     description: "Percent of files meeting Bronze."
     value: ${{ steps.scan.outputs.bronze-coverage }}
